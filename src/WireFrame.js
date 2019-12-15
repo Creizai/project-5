@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import './WireFrame.css'
 
 // holds the origin user names
-let players = [
-    'creizai',
-    'nexanomaly',
-    'rekyu3d'
-]
+// let players = [
+//     'creizai',
+//     'nexanomaly',
+//     'rekyu3d'
+// ]
 
 // API Address
 let url = `https://public-api.tracker.gg/v2/apex/standard/profile/origin/creizai`;
@@ -21,7 +21,7 @@ class WireFrame extends Component {
             playerInfo: [],
             //profilePic: [],
             profilePic: [],
-            //kills: [],
+            kills: [],
             //mmr: []
             mmr: "4,952"
         }
@@ -40,7 +40,9 @@ class WireFrame extends Component {
             console.log(res);
             this.setState({ 
                 playerInfo: [res],
-                profilePic: [res.data.platformInfo.avatarUrl]
+                profilePic: [res.data.platformInfo.avatarUrl],
+                kills: [res.data.segments[0].stats.kills.displayValue], //
+                mmr: [res.data.segments[0].stats.rankScore.displayValue] //
              })
           })
       }
@@ -50,14 +52,15 @@ class WireFrame extends Component {
         var i;
         var x = document.getElementsByClassName("player");
         for (i = 0; i < x.length; i++) {
-          x[i].style.display = "none";  
+          //x[i].style.display = "none";  
         }
-        // Refactor this for react
-        //document.getElementById(playerName).style.display = "block";  
+        //Refactor this for react
+        // document.getElementById(playerName).style.display = "block";  
       }
 
 
     render() {
+        console.log(this.state.profilePic[0])
         return (
             <div className="WireFrame-Box">
                 <div className="Button-Box">
@@ -68,7 +71,7 @@ class WireFrame extends Component {
 
                 <div id="creizai" className="info-box player">
                     <h2>Creizai</h2>
-                    <img src={this.state.profilePic[0]}></img>
+                    <img src={this.state.profilePic[0]} alt="Player"></img>
                     <p>Creizai is the capital city of England.</p>
                 </div>
                 <div id="nexanomaly" className="info-box player" style={{ display: 'none' }}>
