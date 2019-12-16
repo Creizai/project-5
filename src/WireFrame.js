@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 import './WireFrame.css'
 
 // holds the origin user names
-// let players = [
-//     'creizai',
-//     'nexanomaly',
-//     'rekyu3d'
-// ]
+let players = [
+    'creizai',
+    'nexanomaly',
+    'rekyu3d'
+]
 
 // API Address
-let url = `https://public-api.tracker.gg/v2/apex/standard/profile/origin/creizai`;
+let url = `https://public-api.tracker.gg/v2/apex/standard/profile/origin/`;
 
 
 
@@ -17,22 +17,25 @@ class WireFrame extends Component {
     constructor() {
         super()
 
+        console.log(url + players[0])
         this.state = {
             playerInfo: [],
-            //profilePic: [],
             profilePic: [],
             kills: [],
-            //mmr: []
-            mmr: "4,952"
+            mmr: []
         }
 
         // Bind the methods
+        this.getPlayerData = this.getPlayerData.bind(this)
         this.openPlayer = this.openPlayer.bind(this)
+
+        players.forEach(Element => this.getPlayerData(Element))
     }
 
+
     //Pull API Data
-    componentDidMount() {
-        fetch(url, {
+    getPlayerData(playerName) {
+        fetch(url + playerName, {
           headers: { 'TRN-Api-Key': 'ed558c3a-c545-4329-aff7-74e55afc3b77' }
         })
           .then(res => res.json())
@@ -41,11 +44,11 @@ class WireFrame extends Component {
             this.setState({ 
                 playerInfo: [res],
                 profilePic: [res.data.platformInfo.avatarUrl],
-                kills: [res.data.segments[0].stats.kills.displayValue], //
-                mmr: [res.data.segments[0].stats.rankScore.displayValue] //
+                kills: [res.data.segments[0].stats.kills.displayValue],
+                mmr: [res.data.segments[0].stats.rankScore.displayValue]
              })
           })
-      }
+    }
 
     // Change tab method
     openPlayer(playerName) {
@@ -60,6 +63,8 @@ class WireFrame extends Component {
 
 
     render() {
+        //
+
         console.log(this.state.profilePic[0])
         return (
             <div className="WireFrame-Box">
@@ -72,16 +77,18 @@ class WireFrame extends Component {
                 <div id="creizai" className="info-box player">
                     <h2>Creizai</h2>
                     <img src={this.state.profilePic[0]} alt="Player"></img>
-                    <p>Creizai is the capital city of England.</p>
+                    <p>Creizai is Loud</p>
                 </div>
-                <div id="nexanomaly" className="info-box player" style={{ display: 'none' }}>
+                <div id="nexanomaly" className="info-box player" /*style={{ display: 'none' }}*/>
                     <h2>NexAnomaly</h2>
-                    <p>NexAnomaly is the capital of France.</p>
+                    <img src={this.state.profilePic[1]} alt="Player"></img>
+                    <p>NexAnomaly is Funny</p>
                 </div>
 
                 <div id="rekyu3d" className="info-box player" style={{ display: 'none' }}>
                     <h2>Rekyu3d</h2>
-                    <p>Rekyu3d is the capital of Japan.</p>
+                    <img src={this.state.profilePic[2]} alt="Player"></img>
+                    <p>Rekyu3d is a grill</p>
                 </div>
             </div>
         )
