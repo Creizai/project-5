@@ -98,29 +98,36 @@ class WireFrame extends Component {
           </button>
         </div>
 
-        <div id="creizai" className="info-box player">
-          <h2>Creizai</h2>
-          <img src={this.state.profilePic[0]} alt="Player"></img>
-          <p>Creizai is Loud</p>
-        </div>
-        <div
-          id="nexanomaly"
-          className="info-box player" /*style={{ display: 'none' }}*/
-        >
-          <h2>NexAnomaly</h2>
-          <img src={this.state.profilePic[1]} alt="Player"></img>
-          <p>NexAnomaly is Funny</p>
-        </div>
+        {this.state.show(
+          <div id="creizai" className="info-box player">
+            <h2>Creizai</h2>
+            <img src={this.state.profilePic[0]} alt="Player"></img>
+            <p>Creizai is Loud</p>
+          </div>
+        )}
 
-        <div
-          id="rekyu3d"
-          className="info-box player"
-          style={{ display: "none" }}
-        >
-          <h2>Rekyu3d</h2>
-          <img src={this.state.profilePic[2]} alt="Player"></img>
-          <p>Rekyu3d is a grill</p>
-        </div>
+        {this.state.show(
+          <div
+            id="nexanomaly"
+            className="info-box player" /*style={{ display: 'none' }}*/
+          >
+            <h2>NexAnomaly</h2>
+            <img src={this.state.profilePic[1]} alt="Player"></img>
+            <p>NexAnomaly is Funny</p>
+          </div>
+        )}
+
+        {this.state.show(
+          <div
+            id="rekyu3d"
+            className="info-box player"
+            style={{ display: "none" }}
+          >
+            <h2>Rekyu3d</h2>
+            <img src={this.state.profilePic[2]} alt="Player"></img>
+            <p>Rekyu3d is a grill</p>
+          </div>
+        )}
       </div>
     );
   }
