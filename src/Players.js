@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 class Players extends Component {
   render() {
     let list = listOfPlayers.map(item => {
+      console.log(item);
       return (
         <div className="players" key={item.userName}>
           <p>
@@ -17,7 +18,7 @@ class Players extends Component {
     return (
       <div>
         <p>test</p>
-        {/* {list} */}
+        {list}
       </div>
     );
   }
