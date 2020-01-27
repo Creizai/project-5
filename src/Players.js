@@ -1,0 +1,26 @@
+import React, { Component } from "react";
+import listOfPlayers from "./list.json";
+import { Link } from "react-router-dom";
+
+class Players extends Component {
+  render() {
+    let list = listOfPlayers.map(item => {
+      return (
+        <div className="players" key={item.userName}>
+          <p>
+            <Link to={"/user/" + item.userName}>{item.userName}</Link>:{" "}
+            {item.userName}
+          </p>
+        </div>
+      );
+    });
+    return (
+      <div>
+        <p>test</p>
+        {/* {list} */}
+      </div>
+    );
+  }
+}
+
+export default Players;
