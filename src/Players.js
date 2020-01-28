@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import listOfPlayers from "./list.json";
-import { Link } from "react-router-dom";
+import { Link, Switch } from "react-router-dom";
 
 class Players extends Component {
   render() {
@@ -15,12 +15,7 @@ class Players extends Component {
         </div>
       );
     });
-    return (
-      <div>
-        <p>test</p>
-        {list}
-      </div>
-    );
+    return <div>{list}</div>;
   }
 }
 
