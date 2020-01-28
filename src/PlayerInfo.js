@@ -16,10 +16,12 @@ class PlayerInfo extends Component {
   }
 
   setPlayerInfo(userName, img, kills, mmr) {
-    this.setState({ userName: userName });
-    this.setState({ img: img });
-    this.setState({ kills: kills });
-    this.setState({ mmr: mmr });
+    this.setState({
+      userName: userName,
+      img: img,
+      kills: kills,
+      mmr: mmr
+    });
   }
 
   componentDidMount() {

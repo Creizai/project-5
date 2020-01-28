@@ -3,7 +3,6 @@ import "./reset.css";
 import "./App.css";
 import { Route, Link, Switch } from "react-router-dom";
 import PlayerInfo from "./PlayerInfo";
-import Players from "./Players";
 import Home from "./Home";
 
 import listOfPlayers from "./list.json";
@@ -48,7 +47,6 @@ class App extends Component {
         <header className="App-header">{list}</header>
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/user" exact component={Players} />
           <Route
             path="/user/:userName"
             render={routerProps => (
