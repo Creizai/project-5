@@ -15,7 +15,7 @@ class PlayerInfo extends Component {
   }
 
   apiCallMethod() {
-    let userName = this.props.matchs.params.userName;
+    let userName = this.props.match.params.userName;
     let url = `${apiUrl}${userName}`;
     fetch(url, {
       mode: "cors",

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./reset.css";
 import "./App.css";
-import { Route, Link, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import PlayerInfo from "./PlayerInfo";
 import Player from "./Players";
 import Home from "./Home";
@@ -38,11 +38,7 @@ class App extends Component {
           <Route
             path="/user/:userName"
             render={routerProps => (
-              <PlayerInfo
-                setPlayerInfo={this.setPlayerInfo}
-                {...routerProps}
-                {...this.state}
-              />
+              <PlayerInfo {...routerProps} {...this.state} />
             )}
           />
         </Switch>
