@@ -113,3 +113,69 @@
 // }
 
 // export default WireFrame;
+
+// setPlayerInfo(userNameParam) {
+//   let userName = userNameParam;
+//   let url = `${apiUrl}${userName}`;
+//   fetch(url, {
+//     mode: "cors",
+//     headers: { "TRN-Api-Key": "ed558c3a-c545-4329-aff7-74e55afc3b77" }
+//   })
+//     .then(res => res.json())
+//     .then(res => {
+//       console.log(res);
+//       let newUser = userName;
+//       let newImg = res.data.platformInfo.avatarUrl;
+//       let newKills = res.data.segments[0].stats.kills.displayValue;
+//       let newMmr = res.data.segments[0].stats.rankScore.displayValue;
+//       this.setState({
+//         userName: newUser,
+//         img: newImg,
+//         kills: newKills,
+//         mmr: newMmr
+//       });
+//       console.log(this.state);
+//     });
+// }
+
+// setPlayerInfo(userName, img, kills, mmr) {
+//   this.setState({
+//     userName: userName,
+//     img: img,
+//     kills: kills,
+//     mmr: mmr
+//   });
+// }
+
+// componentDidMount() {
+//   // // This still needs to pull the user
+//   let userName = this.props.match.params.userName;
+//   let url = `${apiUrl}${userName}`;
+//   console.log(apiUrl);
+//   console.log(userName);
+//   console.log(url);
+
+//   fetch(url, {
+//     mode: "cors",
+//     headers: { "TRN-Api-Key": "ed558c3a-c545-4329-aff7-74e55afc3b77" }
+//   })
+//     .then(response => response.json())
+//     .then(response => {
+//       let newUser = this.props.match.params.userName;
+//       let newImg = response.data.platformInfo.avatarUrl;
+//       let newKills = response.data.segments[0].stats.kills.displayValue;
+//       let newMmr = response.data.segments[0].stats.rankScore.displayValue;
+
+//       // this.setPlayerInfo(newUser, newImg, newKills, newMmr);
+//       this.setState({
+//         userName: newUser,
+//         img: newImg,
+//         kills: newKills,
+//         mmr: newMmr
+//       });
+//       console.error(this.state);
+//     })
+//     .catch(err => {
+//       console.error(err);
+//     });
+// }
