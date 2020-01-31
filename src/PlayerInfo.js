@@ -6,10 +6,16 @@ let apiUrl = `https://public-api.tracker.gg/v2/apex/standard/profile/5/`;
 class PlayerInfo extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      userName: "",
+      img: "",
+      kills: "",
+      mmr: ""
+    };
   }
 
   apiCallMethod() {
-    let userName = this.props.match.params.userName;
+    let userName = this.props.matchs.params.userName;
     let url = `${apiUrl}${userName}`;
     fetch(url, {
       mode: "cors",
@@ -23,7 +29,12 @@ class PlayerInfo extends Component {
         let newKills = res.data.segments[0].stats.kills.displayValue;
         let newMmr = res.data.segments[0].stats.rankScore.displayValue;
 
-        this.props.setPlayerInfo(newUser, newImg, newKills, newMmr);
+        this.setState({
+          userName: newUser,
+          img: newImg,
+          kills: newKills,
+          mmr: newMmr
+        });
 
         console.log(this.props);
       });
