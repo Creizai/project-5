@@ -15,17 +15,6 @@ class App extends Component {
       kills: "",
       mmr: ""
     };
-    this.setPlayerInfo = this.setPlayerInfo.bind(this);
-  }
-
-  setPlayerInfo(newUser, newImg, newKills, newMmr) {
-    this.setState({
-      userName: newUser,
-      img: newImg,
-      kills: newKills,
-      mmr: newMmr
-    });
-    console.error(this.state);
   }
 
   render() {

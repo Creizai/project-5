@@ -6,14 +6,14 @@ class Players extends Component {
   constructor() {
     super();
 
-    this.state = {
-      activeUser: null
-    };
+    // this.state = {
+    //   activeUser: null
+    // };
   }
   render() {
     let list = listOfPlayers.map(item => {
       return (
-        <div className="players" key={item.id}>
+        <div className="players" key={item.userName}>
           <p>
             <Link to={"/user/" + item.userName}>{item.userName}</Link>:{" "}
             {item.userName}

@@ -6,12 +6,12 @@ let apiUrl = `https://public-api.tracker.gg/v2/apex/standard/profile/5/`;
 class PlayerInfo extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      userName: "",
-      img: "",
-      kills: "",
-      mmr: ""
-    };
+    // this.state = {
+    //   userName: "",
+    //   img: "",
+    //   kills: "",
+    //   mmr: ""
+    // };
   }
 
   apiCallMethod() {
@@ -28,14 +28,12 @@ class PlayerInfo extends Component {
         let newImg = res.data.platformInfo.avatarUrl;
         let newKills = res.data.segments[0].stats.kills.displayValue;
         let newMmr = res.data.segments[0].stats.rankScore.displayValue;
-
         this.setState({
           userName: newUser,
           img: newImg,
           kills: newKills,
           mmr: newMmr
         });
-
         console.log(this.props);
       });
   }
